@@ -5,8 +5,9 @@
 
 <!-- badges: start -->
 
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/tabby)](https://CRAN.R-project.org/package=tabby)
+[![Downloads](https://cranlogs.r-pkg.org/badges/tabby)](https://CRAN.R-project.org/package=tabby)
 [![R-CMD-check](https://github.com/tidymodels/tabby/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tidymodels/tabby/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/tidymodels/tabby/graph/badge.svg)](https://app.codecov.io/gh/tidymodels/tabby)
@@ -33,6 +34,7 @@ optimize.
 | Model | Function | Mode | Engine | Python |
 |----|----|----|----|:--:|
 | [TabPFN](https://tabpfn.tidymodels.org) | `tabular_pfn()` | `classification`, `regression` | `tabpfn` | ✔ |
+| [TabPFN](https://brulee.tidymodels.org/reference/brulee_tab_pfn.html) | `tabular_pfn()` | `classification`, `regression` | `brulee` |  |
 | [TabICL](https://brulee.tidymodels.org/reference/brulee_tab_icl.html) | `tabular_icl()` | `classification`, `regression` | `brulee` |  |
 | [ResNet](https://brulee.tidymodels.org/reference/brulee_resnet.html) | `tabular_resnet()` | `classification`, `regression` | `brulee` |  |
 | [SAINT](https://brulee.tidymodels.org/reference/brulee_saint.html) | `tabular_saint()` | `classification`, `regression` | `brulee` |  |
@@ -52,7 +54,6 @@ You can install the development version of tabby from
 [GitHub](https://github.com/tidymodels/tabby) with:
 
 ``` r
-# install.packages("pak")
 pak::pak("tidymodels/tabby")
 ```
 
@@ -110,6 +111,20 @@ rn_spec <-
 
 rn_grid <- neural_net_grid_space_filling(rn_spec)
 rn_grid |> expand_list_parameters()
+#> # A tibble: 10 × 7
+#>          penalty hidden_units_1 hidden_units_2 hidden_units_3 bottleneck_units_1
+#>            <dbl>          <int>          <int>          <int>              <int>
+#>  1 0.00599                    2             50             28                 18
+#>  2 0.0000359                  7             18             34                 23
+#>  3 0.00000278                12              2             44                 39
+#>  4 0.0000000001              18             28             18                  2
+#>  5 0.00000000129             23             34              2                 44
+#>  6 0.0774                    28              7             12                 34
+#>  7 0.000000215               34             39             39                 50
+#>  8 0.000464                  39             12              7                  7
+#>  9 1                         44             44             23                 28
+#> 10 0.0000000167              50             23             50                 12
+#> # ℹ 2 more variables: bottleneck_units_2 <int>, bottleneck_units_3 <int>
 ```
 
 ## Code of Conduct
